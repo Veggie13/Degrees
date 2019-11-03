@@ -11,6 +11,7 @@ namespace Degrees.Engine
             ID = id;
             Name = name;
             Credits = new HashSet<Movie>();
+            _hashCode = ID.GetHashCode();
         }
 
         public string ID { get; private set; }
@@ -22,9 +23,10 @@ namespace Degrees.Engine
             return obj == this;
         }
 
+        private int _hashCode;
         public override int GetHashCode()
         {
-            return ID.GetHashCode();
+            return _hashCode;
         }
 
         public override string ToString()
