@@ -14,17 +14,24 @@ namespace Degrees.Engine
         public IEnumerable<Movie> Movies { get { return _movies.Values; } }
         public IEnumerable<Actor> Actors { get { return _actors.Values; } }
 
-        public void Load(TextReader titleSource, TextReader nameSource, TextReader principalSource)
+        public delegate void Progress(string message, int part, int amount);
+
+        public void Load(TextReader titleSource, TextReader nameSource, TextReader principalSource, Progress report = null)
         {
-            var titles = TsvReader.ReadAll(titleSource, Parser.GetTitle)
+            if (report == null)
+            {
+                report = (m, p, a) => { };
+            }
+
+            var titles = TsvReader.ReadAll(titleSource, Parser.GetTitle, lc => { report("Loading titles", 1, lc); })
                 .Where(t => t.titleType == "movie");
 
-            var names = TsvReader.ReadAll(nameSource, Parser.GetName);
+            var names = TsvReader.ReadAll(nameSource, Parser.GetName, lc => { report("Loading names", 2, lc); });
 
             _movies = titles.ToDictionary(t => t.tconst, t => new Movie(t.tconst, t.primaryTitle));
             _actors = names.ToDictionary(n => n.nconst, n => new Actor(n.nconst, n.primaryName));
 
-            var principals = TsvReader.ReadAll(principalSource, Parser.GetPrincipal)
+            var principals = TsvReader.ReadAll(principalSource, Parser.GetPrincipal, lc => { report("Loading principals", 3, lc); })
                 .Where(p => _actors.ContainsKey(p.nconst))
                 .Where(p => _movies.ContainsKey(p.tconst))
                 .Where(p => p.category == "actor" || p.category == "actress");
