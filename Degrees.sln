@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29424.173
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Degrees.Engine", "Degrees.Engine\Degrees.Engine.csproj", "{0493FDD3-3B20-446C-AB2A-B98A7453D1EB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Degrees.Engine", "Degrees.Engine\Degrees.Engine.csproj", "{0493FDD3-3B20-446C-AB2A-B98A7453D1EB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Degrees.Tester", "Degrees.Tester\Degrees.Tester.csproj", "{60E70E21-8FB0-4016-AA3E-9003D5A70463}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Degrees.Tester", "Degrees.Tester\Degrees.Tester.csproj", "{60E70E21-8FB0-4016-AA3E-9003D5A70463}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Degrees.Desktop", "Degrees.Desktop\Degrees.Desktop.csproj", "{63E0DD61-A149-4C07-80C9-31AC2D71E583}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{60E70E21-8FB0-4016-AA3E-9003D5A70463}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{60E70E21-8FB0-4016-AA3E-9003D5A70463}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{60E70E21-8FB0-4016-AA3E-9003D5A70463}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63E0DD61-A149-4C07-80C9-31AC2D71E583}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63E0DD61-A149-4C07-80C9-31AC2D71E583}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63E0DD61-A149-4C07-80C9-31AC2D71E583}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63E0DD61-A149-4C07-80C9-31AC2D71E583}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
